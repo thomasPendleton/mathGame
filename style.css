@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: floralwhite;
+  margin: 0;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 100vh;
+  overflow: hidden;
+}
+.container {
+  min-height: 150px;
+  background-color: rgb(151, 87, 255);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(40, 0, 65);
+  width: 370px;
+}
+
+.line {
+  width: 100px;
+  height: 1px;
+  background-color: black;
+  margin: 10px;
+}
+
+input {
+  width: 20%;
+  height: 50px;
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid rebeccapurple;
+  border-radius: 2px;
+}
+.question {
+  text-align: right;
+  width: 50px;
+}
+div h2 {
+  margin: 0px;
+}
+#second-number {
+  position: relative;
+}
+#operation {
+  position: absolute;
+  left: -10px;
+}
+.score-container {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  /* width: 195px; */
+  background-color: blueviolet;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 15px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.wrong-container {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  /* width: 195px; */
+  background-color: orangered;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 15px;
+  font-size: 1.5rem;
+  color: white;
+}
+.timer {
+  position: absolute;
+  background-color: blueviolet;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: white;
+  top: 30px;
+  left: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.timer:hover {
+  background-color: rgb(152, 50, 247);
+}
+.timer:active{ 
+  transform: scale(.98)
+
+}
+.correct {
+  color: greenyellow;
+  font-size: 1.65rem;
+  box-shadow: 0 0 6px 10px rgba(173, 255, 47, 0.5);
+  border-radius: 5px;
+}
+.wrong {
+  box-shadow: 0 0 6px 10px rgba(255, 12, 50, 0.5);
+  border-radius: 5px;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 740px) {
+  .math-game {
+    color: transparent;
+  }
+}
