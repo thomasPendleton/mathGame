@@ -6,9 +6,10 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: floralwhite;
+  background-color: lavender;
   margin: 0;
-  margin-top: 100px;
+  /* margin-top: 100px; */
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +19,7 @@ body {
 }
 .container {
   min-height: 150px;
-  background-color: rgb(151, 87, 255);
+  background-color: rgb(237, 50, 247);
   border-radius: 5px;
   padding: 20px;
   display: flex;
@@ -63,7 +64,7 @@ div h2 {
   top: 30px;
   right: 50px;
   /* width: 195px; */
-  background-color: blueviolet;
+  background-color: pink;
   border-radius: 5px;
   border: 1px solid black;
   padding: 15px;
@@ -85,7 +86,7 @@ div h2 {
 }
 .timer {
   position: absolute;
-  background-color: blueviolet;
+  background-color: pink;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid black;
@@ -97,7 +98,7 @@ div h2 {
 }
 
 .timer:hover {
-  background-color: rgb(152, 50, 247);
+  background-color: rgb(237, 50, 247);
 }
 .timer:active{ 
   transform: scale(.98)
@@ -127,8 +128,31 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.fa-heart {
+  position: absolute;
+  color: rgb(255, 147, 165);
+  font-size: 5rem;
+  animation: grow 0.6s linear;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.fa-solid{
+  position: absolute;
+  color: red;
+  font-size: 5rem;
+  animation: grow 0.6s linear;
+  transform: translate(-50%, -50%) scale(0);
+}
+
 @media only screen and (max-width: 740px) {
   .math-game {
     color: transparent;
+  }
+}
+
+@keyframes grow {
+  to {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
   }
 }

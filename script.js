@@ -18,6 +18,10 @@ let wrong = 0
 let answer
 let countDownTime = 10
 
+function randomMath(x) {
+  return Math.floor(Math.random() * x)
+}
+
 function randomOperator() {
   const operator = Math.floor(Math.random() * operators.length)
   return operators[operator]
@@ -89,10 +93,16 @@ function enterEventHandler(e) {
   if (e.key === 'Enter') {
     if (+guess.value === answer) {
       totalScore++
+      addHeart()
+      addHeart()
+      addHeart()
+      addHeart()
+
       score.innerHTML = `${totalScore}`
       scoreContainer.classList.add('correct')
     } else {
       wrong++
+      addX()
       wrongEl.innerHTML = `${wrong}`
       gameEl.classList.add('wrong')
     }
@@ -107,11 +117,11 @@ function enterEventHandler(e) {
 function clearScores() {
   wrong = 0
   totalScore = 0
+  timerEl.removeEventListener('click', playNow)
 }
 
 function playNow() {
   clearScores()
-  timerEl.removeEventListener('click', playNow)
   timeLeft = countDownTime
   const interval = setInterval(() => {
     timeLeft--
@@ -122,7 +132,8 @@ function playNow() {
       questionEl.innerHTML = `
       <h2 style='color: white; font-size: 2rem'>Times Up!</h2>
       <br>
-      <h3 style='color: white; font-size: 1.7rem'>You got ${totalScore} out of ${totalScore + wrong} right! `
+      <h3 style='color: white; font-size: 1.7rem; text-align: center'>You got ${totalScore} correct!
+      <br> and ${wrong} wrong. `
       timerEl.innerHTML = `Play Again`
       timerEl.addEventListener('click', playNow)
     }
@@ -132,3 +143,31 @@ function playNow() {
 }
 
 timerEl.addEventListener('click', playNow)
+
+function addHeart() {
+  const heart = document.createElement('i')
+  heart.classList.add('fas')
+  heart.classList.add('fa-heart')
+  let rect = document.body.getBoundingClientRect()
+  //   console.log(rect.top, rect.right, rect.bottom, rect.left)
+  heart.style.top = `${randomMath(rect.bottom - 400)}px`
+  heart.style.left = `${randomMath(rect.right)}px`
+  document.body.appendChild(heart)
+  setTimeout(() => {
+    heart.remove()
+  }, 1500)
+}
+
+function addX() {
+  const x = document.createElement('i')
+  x.classList.add('fa-solid')
+  x.classList.add('fa-x')
+  let rect = document.body.getBoundingClientRect()
+  //   console.log(rect.top, rect.right, rect.bottom, rect.left)
+  x.style.top = `${rect.top + 200}px`
+  x.style.left = `${rect.right / 2}px`
+  document.body.appendChild(x)
+  setTimeout(() => {
+    x.remove()
+  }, 1500)
+}
