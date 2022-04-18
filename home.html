@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
     <script async src="script.js"></script>
     <title>Math Quiz Game</title>
   </head>
   <body>
+    <div class="settings" id="settings"><i class="fa-solid fa-gear"></i></div>
+
+
     <div class="score-container" id="score-container">
       Total Score : <span id="score">0</span>
     </div>
@@ -19,5 +28,22 @@
     <div class="timer" id="timer">Play Now!</div>
     <h1 class="math-game">Math Game</h1>
     <div id="game" class="game"></div>
+
+    <div class="modal" id="modal">
+      <div id="close" class="close">x</div>
+      <h3>Game Settings</h3>
+      <div>
+        <label for="player">Player Name:</label>
+        <input type='text' id="player" value="Ari"/>
+      </div>
+      <div>
+        <label for="high-number">Highest number:</label>
+        <input type="number" min="9" id="high-number" value="15" />
+      </div>
+      <div>
+        <label for="time">Time given:</label>
+        <input type="number" min="10" id="time" type="number" value="120" />
+      </div>
+    </div>
   </body>
 </html>

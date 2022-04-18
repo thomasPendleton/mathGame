@@ -37,7 +37,7 @@ body {
   margin: 10px;
 }
 
-input {
+.game input{
   width: 20%;
   height: 50px;
   font-size: 2rem;
@@ -116,6 +116,7 @@ div h2 {
 }
 
 
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -128,6 +129,33 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.modal{
+  /* display: none; */
+  position: absolute;
+  top: 110px;
+  background-color: aliceblue;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px 30px;
+  font-size: 2rem;
+  text-align: center;
+ 
+}
+
+.close{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
 .fa-heart {
   position: absolute;
   color: rgb(255, 147, 165);
@@ -136,7 +164,7 @@ input[type=number] {
   transform: translate(-50%, -50%) scale(0);
 }
 
-.fa-solid{
+.fa-x{
   position: absolute;
   color: red;
   font-size: 5rem;
@@ -144,6 +172,25 @@ input[type=number] {
   transform: translate(-50%, -50%) scale(0);
 }
 
+.settings {
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 45px;
+  left: 15px;
+}
+
+.modal input {
+  font-size: 2rem;
+  width: 70px;
+}
+.modal div{
+  margin: 10px;
+}
+
+#player {
+  width: 200px;
+}
 @media only screen and (max-width: 740px) {
   .math-game {
     color: transparent;

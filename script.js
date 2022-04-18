@@ -8,7 +8,12 @@ const gameEl = document.getElementById('game')
 const question = document.getElementById('question')
 const wrongEl = document.getElementById('wrong')
 const timerEl = document.getElementById('timer')
+const closeBtn = document.getElementById('close')
+const modalEl = document.getElementById('modal')
+const settingsBtn = document.getElementById('settings')
+
 const questionEl = document.createElement('div')
+
 
 const operators = ['+', '-']
 
@@ -16,7 +21,7 @@ let totalScore = 0
 let maxNumber = 20
 let wrong = 0
 let answer
-let countDownTime = 10
+let countDownTime = 180
 
 function randomMath(x) {
   return Math.floor(Math.random() * x)
@@ -86,7 +91,7 @@ function play() {
 
 function enterEventHandler(e) {
   const guess = document.getElementById('guess')
-  if (guess.value === '') {
+  if (guess.value === '' || guess.value === null) {
     console.log('no value')
     return
   }
@@ -114,6 +119,8 @@ function enterEventHandler(e) {
     play()
   }
 }
+
+
 function clearScores() {
   wrong = 0
   totalScore = 0
@@ -126,7 +133,6 @@ function playNow() {
   const interval = setInterval(() => {
     timeLeft--
     timerEl.innerHTML = ` Time left : <span id="time">${timeLeft}</span>`
-    console.log(countDownTime)
     if (timeLeft < 1) {
       clearInterval(interval)
       questionEl.innerHTML = `
@@ -136,6 +142,7 @@ function playNow() {
       <br> and ${wrong} wrong. `
       timerEl.innerHTML = `Play Again`
       timerEl.addEventListener('click', playNow)
+      addLocalStorage()
     }
   }, 1000)
 
@@ -171,3 +178,20 @@ function addX() {
     x.remove()
   }, 1500)
 }
+
+
+function addLocalStorage() {
+  if (totalScore > localStorage.getItem('ari')) {
+    localStorage.setItem('ari', totalScore)
+  } else {
+    console.log('not ari')
+  }
+}
+
+closeBtn.addEventListener('click', () => {
+    modalEl.style.display = 'none'
+})
+
+settingsBtn.addEventListener('click', () => {
+    modalEl.style.display = 'block'
+})
