@@ -11,9 +11,9 @@ const timerEl = document.getElementById('timer')
 const closeBtn = document.getElementById('close')
 const modalEl = document.getElementById('modal')
 const settingsBtn = document.getElementById('settings')
+const playerId = document.getElementById('player')
 
 const questionEl = document.createElement('div')
-
 
 const operators = ['+', '-']
 
@@ -21,16 +21,21 @@ let totalScore = 0
 let maxNumber = 20
 let wrong = 0
 let answer
-let countDownTime = 180
+let countDownTime = 10
+let playerName = 'Ari'
 
+// Generates a random whole number, input of variable x
 function randomMath(x) {
   return Math.floor(Math.random() * x)
 }
 
+//Generates a random operator for math question + -
 function randomOperator() {
   const operator = Math.floor(Math.random() * operators.length)
   return operators[operator]
 }
+
+//Generates random numbers up to the max number
 function randomNumber() {
   const num = Math.floor(Math.random() * maxNumber) + 1
   if (num === maxNumber + 1) {
@@ -98,11 +103,7 @@ function enterEventHandler(e) {
   if (e.key === 'Enter') {
     if (+guess.value === answer) {
       totalScore++
-      addHeart()
-      addHeart()
-      addHeart()
-      addHeart()
-
+      addHearts(2)
       score.innerHTML = `${totalScore}`
       scoreContainer.classList.add('correct')
     } else {
@@ -116,10 +117,10 @@ function enterEventHandler(e) {
       gameEl.classList.remove('wrong')
     }, 1000)
     gameEl.innerHTML = ``
+
     play()
   }
 }
-
 
 function clearScores() {
   wrong = 0
@@ -142,6 +143,7 @@ function playNow() {
       <br> and ${wrong} wrong. `
       timerEl.innerHTML = `Play Again`
       timerEl.addEventListener('click', playNow)
+      document.removeEventListener('keyup', enterEventHandler)
       addLocalStorage()
     }
   }, 1000)
@@ -151,6 +153,7 @@ function playNow() {
 
 timerEl.addEventListener('click', playNow)
 
+// creates the heart element and randomly places the heart on the body
 function addHeart() {
   const heart = document.createElement('i')
   heart.classList.add('fas')
@@ -165,6 +168,25 @@ function addHeart() {
   }, 1500)
 }
 
+//adds mulitiple hearts at slightly different timing intervals
+function addHearts(num) {
+  let hearts = 0
+  while (hearts < num) {
+    hearts++
+    addHeart()
+    setTimeout(() => {
+      addHeart()
+    }, 100)
+    setTimeout(() => {
+      addHeart()
+    }, 300)
+    setTimeout(() => {
+      addHeart()
+    }, 200)
+  }
+}
+
+// creates and appends to middle of body a red X - used when incorrect answer given
 function addX() {
   const x = document.createElement('i')
   x.classList.add('fa-solid')
@@ -179,19 +201,27 @@ function addX() {
   }, 1500)
 }
 
+//change Player input id
 
+playerId.addEventListener('input', (e) => {
+  playerName = e.target.value
+})
+
+//Adds a high score to local storage.
 function addLocalStorage() {
-  if (totalScore > localStorage.getItem('ari')) {
-    localStorage.setItem('ari', totalScore)
-  } else {
-    console.log('not ari')
+  console.log(playerName)
+  if (!localStorage.getItem(playerName)) {
+    localStorage.setItem(playerName, [totalScore, countDownTime])
   }
+  if (totalScore > localStorage.getItem(playerName)) {
+    localStorage.setItem(playerName, [totalScore, countDownTime])
+  } 
 }
 
 closeBtn.addEventListener('click', () => {
-    modalEl.style.display = 'none'
+  modalEl.style.display = 'none'
 })
 
 settingsBtn.addEventListener('click', () => {
-    modalEl.style.display = 'block'
+  modalEl.style.display = 'block'
 })
