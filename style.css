@@ -152,7 +152,7 @@ input[type=number] {
   padding: 20px 30px;
   font-size: 2rem;
   text-align: center;
- 
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .close{
@@ -191,6 +191,8 @@ input[type=number] {
   position: absolute;
   top: 45px;
   left: 15px;
+ 
+
 }
 
 .modal input {
