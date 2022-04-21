@@ -36,7 +36,10 @@ body {
   background-color: black;
   margin: 10px;
 }
-
+.playNow{
+  cursor: pointer;
+ 
+}
 .game input{
   width: 20%;
   height: 50px;
@@ -116,11 +119,33 @@ div h2 {
   left: 50px;
   font-size: 1.5rem;
   cursor: pointer;
+  
 }
+.high-score:active{
+  transform: scale(.98);
+}
+.high-scores-container{
+  position: absolute;
+  top: 170px;
+  left: 50px;
+  color: white;
+  text-align: center;
+  background-color: pink;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  transform: translateX(-350px);
+  transition: transform 0.5s ease;
+}
+
+.show{
+  transform: translateX(0px)
+}
+
 .correct {
-  color: greenyellow;
+  /* color: greenyellow; */
   font-size: 1.65rem;
-  box-shadow: 0 0 6px 10px rgba(173, 255, 47, 0.5);
+  box-shadow: 0 0 6px 10px rgba(255, 110, 175, 0.5);
   border-radius: 5px;
 }
 .wrong {
@@ -143,7 +168,7 @@ input[type=number] {
 }
 
 .modal{
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 110px;
   background-color: aliceblue;
@@ -153,6 +178,8 @@ input[type=number] {
   font-size: 2rem;
   text-align: center;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-500px);
+  transition: transform 0.6s ease;
 }
 
 .close{
@@ -218,3 +245,4 @@ input[type=number] {
     opacity: 0;
   }
 }
+

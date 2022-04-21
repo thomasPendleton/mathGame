@@ -12,6 +12,9 @@ const closeBtn = document.getElementById('close')
 const modalEl = document.getElementById('modal')
 const settingsBtn = document.getElementById('settings')
 const playerId = document.getElementById('player')
+const highScore = document.getElementById('high-score')
+const highScoresContainer = document.getElementById('high-scores-container')
+const highNumberInput = document.getElementById('high-number')
 
 const questionEl = document.createElement('div')
 
@@ -21,8 +24,20 @@ let totalScore = 0
 let maxNumber = 20
 let wrong = 0
 let answer
-let countDownTime = 10
+let countDownTime = 120
 let playerName = 'Ari'
+
+//change maxNumber function
+function changeMaxNumber(e) {
+  maxNumber = e.target.value
+}
+highNumberInput.addEventListener('input', changeMaxNumber)
+
+//change timeGiven function
+function changeCountDownTime(e) {
+  countDownTime = e.target.value
+}
+time.addEventListener('input', changeCountDownTime)
 
 // Generates a random whole number, input of variable x
 function randomMath(x) {
@@ -130,6 +145,7 @@ function clearScores() {
 
 function playNow() {
   clearScores()
+
   timeLeft = countDownTime
   const interval = setInterval(() => {
     timeLeft--
@@ -145,6 +161,8 @@ function playNow() {
       timerEl.addEventListener('click', playNow)
       document.removeEventListener('keyup', enterEventHandler)
       addLocalStorage()
+
+     
     }
   }, 1000)
 
@@ -209,19 +227,75 @@ playerId.addEventListener('input', (e) => {
 
 //Adds a high score to local storage.
 function addLocalStorage() {
-  console.log(playerName)
+  console.log(playerName, totalScore)
+  console.log(localStorage.getItem(playerName))
   if (!localStorage.getItem(playerName)) {
-    localStorage.setItem(playerName, [totalScore, countDownTime])
+    console.log('new player added')
+    return localStorage.setItem(
+      playerName,
+      JSON.stringify({
+        totalScore,
+        countDownTime,
+      })
+    )
   }
-  if (totalScore > localStorage.getItem(playerName)) {
-    localStorage.setItem(playerName, [totalScore, countDownTime])
-  } 
+  if (totalScore > JSON.parse(localStorage.getItem(playerName)).totalScore) {
+    console.log('new high score')
+    localStorage.removeItem(playerName)
+    return localStorage.setItem(
+      playerName,
+      JSON.stringify({
+        totalScore,
+        countDownTime,
+      })
+    )
+  }
 }
 
+console.log(JSON.parse(localStorage.getItem(playerName)).totalScore)
+
 closeBtn.addEventListener('click', () => {
-  modalEl.style.display = 'none'
+  modalEl.style.transform = 'translateY(-500px)'
 })
 
 settingsBtn.addEventListener('click', () => {
-  modalEl.style.display = 'block'
+  modalEl.style.transform = 'translateY(0px)'
+  highScore.classList.remove('show')
 })
+
+toggleHighScores()
+highScore.addEventListener('click', () => {
+  highScoresContainer.classList.toggle('show')
+})
+
+function toggleHighScores() {
+  if (!highScore.classList.contains('show')) {
+    highScore.classList.add('show')
+    for (let i = 0; i < localStorage.length; i++) {
+      const highScorePlayer = document.createElement('h3')
+
+      const player = JSON.parse(localStorage.getItem(localStorage.key(i)))
+      const { totalScore, countDownTime } = player
+
+      highScorePlayer.innerHTML = `
+       ${localStorage.key(i)} - ${totalScore}
+       right in ${countDownTime} seconds
+      `
+      highScore.style.textAlign = 'center'
+      highScoresContainer.appendChild(highScorePlayer)
+    }
+  } else {
+    highScore.classList.remove('show')
+    // highScoresContainer.
+    // highScore.innerHTML = 'High Scores:'
+  }
+}
+
+// let countries = Object.keys(localStorage).sort(function (a, b) {
+//   //   console.log(a, b)
+//   //   console.log(localStorage[a][14])
+//   return localStorage[b][14] - localStorage[a][14]
+// })
+// console.log(countries)
+
+// highScoresContainer.innerHTML = `${toggleHighScores()}`
