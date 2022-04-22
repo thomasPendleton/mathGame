@@ -117,11 +117,13 @@ function enterEventHandler(e) {
   }
   if (e.key === 'Enter') {
     if (+guess.value === answer) {
+      correctSound.play()
       totalScore++
       addHearts(2)
       score.innerHTML = `${totalScore}`
       scoreContainer.classList.add('correct')
     } else {
+      wrongSound.play()
       wrong++
       addX()
       wrongEl.innerHTML = `${wrong}`
@@ -161,8 +163,7 @@ function playNow() {
       timerEl.addEventListener('click', playNow)
       document.removeEventListener('keyup', enterEventHandler)
       addLocalStorage()
-
-     
+      congratsSound.play()
     }
   }, 1000)
 
@@ -189,6 +190,7 @@ function addHeart() {
 //adds mulitiple hearts at slightly different timing intervals
 function addHearts(num) {
   let hearts = 0
+
   while (hearts < num) {
     hearts++
     addHeart()
@@ -252,7 +254,12 @@ function addLocalStorage() {
   }
 }
 
+
+
 console.log(JSON.parse(localStorage.getItem(playerName)).totalScore)
+
+
+
 
 closeBtn.addEventListener('click', () => {
   modalEl.style.transform = 'translateY(-500px)'
@@ -291,11 +298,7 @@ function toggleHighScores() {
   }
 }
 
-// let countries = Object.keys(localStorage).sort(function (a, b) {
-//   //   console.log(a, b)
-//   //   console.log(localStorage[a][14])
-//   return localStorage[b][14] - localStorage[a][14]
-// })
-// console.log(countries)
+const correctSound = document.getElementById('correct-sound')
+const wrongSound = document.getElementById('wrong-sound')
+const congratsSound = document.getElementById('congrats-sound')
 
-// highScoresContainer.innerHTML = `${toggleHighScores()}`
