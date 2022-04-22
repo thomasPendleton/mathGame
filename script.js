@@ -163,7 +163,10 @@ function playNow() {
       timerEl.addEventListener('click', playNow)
       document.removeEventListener('keyup', enterEventHandler)
       addLocalStorage()
-      congratsSound.play()
+      //   toggleHighScores()
+      if (totalScore > 5) {
+        congratsSound.play()
+      }
     }
   }, 1000)
 
@@ -230,10 +233,10 @@ playerId.addEventListener('input', (e) => {
 //Adds a high score to local storage.
 function addLocalStorage() {
   console.log(playerName, totalScore)
-  console.log(localStorage.getItem(playerName))
+ 
   if (!localStorage.getItem(playerName)) {
     console.log('new player added')
-    return localStorage.setItem(
+    localStorage.setItem(
       playerName,
       JSON.stringify({
         totalScore,
@@ -244,7 +247,7 @@ function addLocalStorage() {
   if (totalScore > JSON.parse(localStorage.getItem(playerName)).totalScore) {
     console.log('new high score')
     localStorage.removeItem(playerName)
-    return localStorage.setItem(
+    localStorage.setItem(
       playerName,
       JSON.stringify({
         totalScore,
@@ -252,14 +255,9 @@ function addLocalStorage() {
       })
     )
   }
+  console.log('addHighScores')
+  addHighScores()
 }
-
-
-
-console.log(JSON.parse(localStorage.getItem(playerName)).totalScore)
-
-
-
 
 closeBtn.addEventListener('click', () => {
   modalEl.style.transform = 'translateY(-500px)'
@@ -270,31 +268,39 @@ settingsBtn.addEventListener('click', () => {
   highScore.classList.remove('show')
 })
 
-toggleHighScores()
+// toggleHighScores()
 highScore.addEventListener('click', () => {
   highScoresContainer.classList.toggle('show')
 })
 
-function toggleHighScores() {
+
+const playerObject = {}
+addHighScores()
+
+function addHighScores() {
+  highScoresContainer.innerHTML = ''
+  for (let player = 0; player < localStorage.length; player++) {
+    const name = localStorage.key(player)
+    playerObject[name] = JSON.parse(localStorage.getItem(name))
+  }
+  sortedPlayer = Object.keys(playerObject).sort((a, b) => {
+    return playerObject[b].totalScore - playerObject[a].totalScore
+  })
+
+  for (let i = 0; i < sortedPlayer.length; i++) {
+    const highScorePlayer = document.createElement('h3')
+
+    highScorePlayer.innerHTML = `
+       ${sortedPlayer[i]} - ${playerObject[sortedPlayer[i]].totalScore}
+       right in ${playerObject[sortedPlayer[i]].countDownTime} seconds
+      `
+    highScore.style.textAlign = 'left'
+    highScoresContainer.appendChild(highScorePlayer)
+  }
   if (!highScore.classList.contains('show')) {
     highScore.classList.add('show')
-    for (let i = 0; i < localStorage.length; i++) {
-      const highScorePlayer = document.createElement('h3')
-
-      const player = JSON.parse(localStorage.getItem(localStorage.key(i)))
-      const { totalScore, countDownTime } = player
-
-      highScorePlayer.innerHTML = `
-       ${localStorage.key(i)} - ${totalScore}
-       right in ${countDownTime} seconds
-      `
-      highScore.style.textAlign = 'center'
-      highScoresContainer.appendChild(highScorePlayer)
-    }
   } else {
     highScore.classList.remove('show')
-    // highScoresContainer.
-    // highScore.innerHTML = 'High Scores:'
   }
 }
 
@@ -302,3 +308,28 @@ const correctSound = document.getElementById('correct-sound')
 const wrongSound = document.getElementById('wrong-sound')
 const congratsSound = document.getElementById('congrats-sound')
 
+
+
+// function toggleHighScores() {
+//   highScoresContainer.innerHTML = ''
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const highScorePlayer = document.createElement('h3')
+
+//     const player = JSON.parse(localStorage.getItem(localStorage.key(i)))
+//     const { totalScore, countDownTime } = player
+//     //   console.log(player, totalScore, countDownTime)
+
+//     highScorePlayer.innerHTML = `
+//        ${localStorage.key(i)} - ${totalScore}
+//        right in ${countDownTime} seconds
+//       `
+//     highScore.style.textAlign = 'center'
+//     highScoresContainer.appendChild(highScorePlayer)
+//   }
+
+//   if (!highScore.classList.contains('show')) {
+//     highScore.classList.add('show')
+//   } else {
+//     highScore.classList.remove('show')
+//   }
+// }

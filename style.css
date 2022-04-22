@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: lavender;
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(245, 245, 245);
   margin: 0;
   /* margin-top: 100px; */
   padding-top: 100px;
@@ -28,6 +28,7 @@ body {
   align-items: center;
   border: 2px solid rgb(40, 0, 65);
   width: 370px;
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .line {
@@ -66,7 +67,6 @@ div h2 {
   position: absolute;
   top: 30px;
   right: 50px;
-  /* width: 195px; */
   background-color: pink;
   border-radius: 5px;
   border: 1px solid black;
@@ -101,7 +101,7 @@ div h2 {
 }
 
 .timer:hover {
-  background-color: rgb(237, 50, 247);
+  background-color: rgba(255, 192, 203, .6);
 }
 .timer:active{ 
   transform: scale(.98)
@@ -122,7 +122,7 @@ div h2 {
   
 }
 .high-score:hover{
-  background-color: rgb(237, 50, 247);
+  background-color: rgba(255, 192, 203, .6);
 }
 .high-score:active{
   transform: scale(.98);
@@ -132,11 +132,13 @@ div h2 {
   top: 170px;
   left: 50px;
   color: white;
-  text-align: center;
+  z-index: 10;
+  text-align: left;
   background-color: pink;
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateX(-350px);
   transition: transform 0.5s ease;
 }
@@ -180,7 +182,7 @@ input[type=number] {
   padding: 20px 30px;
   font-size: 2rem;
   text-align: center;
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateY(-500px);
   transition: transform 0.6s ease;
 }
@@ -250,4 +252,5 @@ input[type=number] {
     opacity: 0;
   }
 }
+
 
