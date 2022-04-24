@@ -139,7 +139,7 @@ div h2 {
   border: 1px solid black;
   border-radius: 5px;
   box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
-  transform: translateX(-350px);
+  transform: translateX(-390px);
   transition: transform 0.5s ease;
 }
 
@@ -173,7 +173,6 @@ input[type=number] {
 }
 
 .modal{
-  /* display: none; */
   position: absolute;
   top: 110px;
   background-color: aliceblue;
@@ -183,7 +182,7 @@ input[type=number] {
   font-size: 2rem;
   text-align: center;
   box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
-  transform: translateY(-500px);
+  transform: translateY(-600px);
   transition: transform 0.6s ease;
 }
 
@@ -245,6 +244,17 @@ input[type=number] {
     color: transparent;
   }
 }
+@media only screen and (max-width: 400px) {
+   .modal{
+    font-size: 1.6rem;
+  }
+  .wrong-container, .high-score, .timer, .score-container{
+    font-size: 1.05rem;
+    padding: 16px 10px;
+    box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
 
 @keyframes grow {
   to {

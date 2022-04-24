@@ -139,6 +139,7 @@ function enterEventHandler(e) {
   }
 }
 
+// clears scores and removes click listener for the timer
 function clearScores() {
   wrong = 0
   totalScore = 0
@@ -147,6 +148,8 @@ function clearScores() {
 
 function playNow() {
   clearScores()
+  modalEl.style.transform = 'translateY(-500px)'
+  highScoresContainer.classList.remove('show')
 
   timeLeft = countDownTime
   const interval = setInterval(() => {
@@ -225,15 +228,12 @@ function addX() {
 }
 
 //change Player input id
-
 playerId.addEventListener('input', (e) => {
   playerName = e.target.value
 })
 
-//Adds a high score to local storage.
-function addLocalStorage() {
-  console.log(playerName, totalScore)
- 
+//Adds a high score or new player to local storage.
+function addLocalStorage() { 
   if (!localStorage.getItem(playerName)) {
     console.log('new player added')
     localStorage.setItem(
@@ -244,6 +244,7 @@ function addLocalStorage() {
       })
     )
   }
+
   if (totalScore > JSON.parse(localStorage.getItem(playerName)).totalScore) {
     console.log('new high score')
     localStorage.removeItem(playerName)
@@ -255,21 +256,21 @@ function addLocalStorage() {
       })
     )
   }
-  console.log('addHighScores')
   addHighScores()
 }
 
 closeBtn.addEventListener('click', () => {
-  modalEl.style.transform = 'translateY(-500px)'
+  modalEl.style.transform = 'translateY(-600px)'
 })
 
 settingsBtn.addEventListener('click', () => {
   modalEl.style.transform = 'translateY(0px)'
-  highScore.classList.remove('show')
+  highScoresContainer.classList.remove('show')
 })
 
 // toggleHighScores()
 highScore.addEventListener('click', () => {
+    modalEl.style.transform = 'translateY(-600px)'
   highScoresContainer.classList.toggle('show')
 })
 
@@ -277,6 +278,8 @@ highScore.addEventListener('click', () => {
 const playerObject = {}
 addHighScores()
 
+//clears high scores container and re-adds the updated local storage
+// in descending order. creates the element to display on page.
 function addHighScores() {
   highScoresContainer.innerHTML = ''
   for (let player = 0; player < localStorage.length; player++) {
@@ -294,7 +297,7 @@ function addHighScores() {
        ${sortedPlayer[i]} - ${playerObject[sortedPlayer[i]].totalScore}
        right in ${playerObject[sortedPlayer[i]].countDownTime} seconds
       `
-    highScore.style.textAlign = 'left'
+   
     highScoresContainer.appendChild(highScorePlayer)
   }
   if (!highScore.classList.contains('show')) {
