@@ -86,7 +86,7 @@ div h2 {
   font-size: 1.5rem;
   color: white;
   box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
-  z-index: 5;
+  z-index: 1;
 }
 .timer {
   position: absolute;
@@ -186,6 +186,7 @@ input[type=number] {
   box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateY(-600px);
   transition: transform 0.6s ease;
+  z-index: 10;
 }
 
 .close{
