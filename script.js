@@ -233,7 +233,7 @@ playerId.addEventListener('input', (e) => {
 })
 
 //Adds a high score or new player to local storage.
-function addLocalStorage() { 
+function addLocalStorage() {
   if (!localStorage.getItem(playerName)) {
     console.log('new player added')
     localStorage.setItem(
@@ -270,10 +270,9 @@ settingsBtn.addEventListener('click', () => {
 
 // toggleHighScores()
 highScore.addEventListener('click', () => {
-    modalEl.style.transform = 'translateY(-600px)'
+  modalEl.style.transform = 'translateY(-600px)'
   highScoresContainer.classList.toggle('show')
 })
-
 
 const playerObject = {}
 addHighScores()
@@ -281,7 +280,7 @@ addHighScores()
 //clears high scores container and re-adds the updated local storage
 // in descending order. creates the element to display on page.
 function addHighScores() {
-  highScoresContainer.innerHTML = ''
+  highScoresContainer.innerHTML = '<h3>--High Scores--</h3>'
   for (let player = 0; player < localStorage.length; player++) {
     const name = localStorage.key(player)
     playerObject[name] = JSON.parse(localStorage.getItem(name))
@@ -292,12 +291,12 @@ function addHighScores() {
 
   for (let i = 0; i < sortedPlayer.length; i++) {
     const highScorePlayer = document.createElement('h3')
-    
+
     highScorePlayer.innerHTML = `
        ${sortedPlayer[i]} - ${playerObject[sortedPlayer[i]].totalScore}
        right in ${playerObject[sortedPlayer[i]].countDownTime} seconds
       `
-   
+
     highScoresContainer.appendChild(highScorePlayer)
   }
   if (!highScore.classList.contains('show')) {
@@ -310,29 +309,3 @@ function addHighScores() {
 const correctSound = document.getElementById('correct-sound')
 const wrongSound = document.getElementById('wrong-sound')
 const congratsSound = document.getElementById('congrats-sound')
-
-
-
-// function toggleHighScores() {
-//   highScoresContainer.innerHTML = ''
-//   for (let i = 0; i < localStorage.length; i++) {
-//     const highScorePlayer = document.createElement('h3')
-
-//     const player = JSON.parse(localStorage.getItem(localStorage.key(i)))
-//     const { totalScore, countDownTime } = player
-//     //   console.log(player, totalScore, countDownTime)
-
-//     highScorePlayer.innerHTML = `
-//        ${localStorage.key(i)} - ${totalScore}
-//        right in ${countDownTime} seconds
-//       `
-//     highScore.style.textAlign = 'center'
-//     highScoresContainer.appendChild(highScorePlayer)
-//   }
-
-//   if (!highScore.classList.contains('show')) {
-//     highScore.classList.add('show')
-//   } else {
-//     highScore.classList.remove('show')
-//   }
-// }

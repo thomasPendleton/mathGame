@@ -8,14 +8,15 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-color: rgb(245, 245, 245);
   margin: 0;
-  /* margin-top: 100px; */
   padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   height: 100vh;
   overflow: hidden;
+}
+.math-game{
+  color: rgb(74, 74, 74);
 }
 .container {
   min-height: 150px;
@@ -37,10 +38,7 @@ body {
   background-color: black;
   margin: 10px;
 }
-.playNow{
-  cursor: pointer;
- 
-}
+
 .game input{
   width: 20%;
   height: 50px;
@@ -73,6 +71,7 @@ div h2 {
   padding: 15px;
   font-size: 1.5rem;
   color: white;
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .wrong-container {
@@ -86,6 +85,7 @@ div h2 {
   padding: 15px;
   font-size: 1.5rem;
   color: white;
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 .timer {
   position: absolute;
@@ -98,6 +98,7 @@ div h2 {
   left: 50px;
   font-size: 1.5rem;
   cursor: pointer;
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .timer:hover {
@@ -105,7 +106,6 @@ div h2 {
 }
 .timer:active{ 
   transform: scale(.98)
-
 }
 
 .high-score {
@@ -119,8 +119,9 @@ div h2 {
   left: 50px;
   font-size: 1.5rem;
   cursor: pointer;
-  
-}
+  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  }
+
 .high-score:hover{
   background-color: rgba(255, 192, 203, .6);
 }
@@ -251,7 +252,7 @@ input[type=number] {
   .wrong-container, .high-score, .timer, .score-container{
     font-size: 1.05rem;
     padding: 16px 10px;
-    box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+    
   }
 }
 
