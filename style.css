@@ -254,7 +254,9 @@ input[type=number] {
   .wrong-container, .high-score, .timer, .score-container{
     font-size: 1.05rem;
     padding: 16px 10px;
-    
+  }
+  .score-container, .wrong-container{
+    right: 25px;
   }
 }
 
