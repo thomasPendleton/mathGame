@@ -292,7 +292,7 @@ function addHighScores() {
 
   for (let i = 0; i < sortedPlayer.length; i++) {
     const highScorePlayer = document.createElement('h3')
-
+    
     highScorePlayer.innerHTML = `
        ${sortedPlayer[i]} - ${playerObject[sortedPlayer[i]].totalScore}
        right in ${playerObject[sortedPlayer[i]].countDownTime} seconds
