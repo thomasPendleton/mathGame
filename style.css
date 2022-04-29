@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@300;400;500&display=swap');
 * {
   box-sizing: border-box;
 }
@@ -15,8 +16,11 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-.math-game{
+.math-game {
   color: rgb(74, 74, 74);
+  font-family: "Press Start 2P";
+  margin-top: 0;
+  font-size: 2.5rem;
 }
 .container {
   min-height: 150px;
@@ -29,7 +33,8 @@ body {
   align-items: center;
   border: 2px solid rgb(40, 0, 65);
   width: 370px;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
 }
 
 .line {
@@ -39,7 +44,7 @@ body {
   margin: 10px;
 }
 
-.game input{
+.game input {
   width: 20%;
   height: 50px;
   font-size: 2rem;
@@ -71,7 +76,7 @@ div h2 {
   padding: 15px;
   font-size: 1.5rem;
   color: white;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .wrong-container {
@@ -85,7 +90,7 @@ div h2 {
   padding: 15px;
   font-size: 1.5rem;
   color: white;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 .timer {
@@ -99,14 +104,14 @@ div h2 {
   left: 50px;
   font-size: 1.5rem;
   cursor: pointer;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 
 .timer:hover {
-  background-color: rgba(255, 192, 203, .6);
+  background-color: rgba(255, 192, 203, 0.6);
 }
-.timer:active{ 
-  transform: scale(.98)
+.timer:active {
+  transform: scale(0.98);
 }
 
 .high-score {
@@ -120,16 +125,16 @@ div h2 {
   left: 50px;
   font-size: 1.5rem;
   cursor: pointer;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
-  }
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
+}
 
-.high-score:hover{
-  background-color: rgba(255, 192, 203, .6);
+.high-score:hover {
+  background-color: rgba(255, 192, 203, 0.6);
 }
-.high-score:active{
-  transform: scale(.98);
+.high-score:active {
+  transform: scale(0.98);
 }
-.high-scores-container{
+.high-scores-container {
   position: absolute;
   top: 170px;
   left: 50px;
@@ -140,13 +145,13 @@ div h2 {
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateX(-390px);
   transition: transform 0.5s ease;
 }
 
-.show{
-  transform: translateX(0px)
+.show {
+  transform: translateX(0px);
 }
 
 .correct {
@@ -160,8 +165,6 @@ div h2 {
   border-radius: 5px;
 }
 
-
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -170,11 +173,11 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.modal{
+.modal {
   position: absolute;
   top: 110px;
   background-color: aliceblue;
@@ -183,13 +186,13 @@ input[type=number] {
   padding: 20px 30px;
   font-size: 2rem;
   text-align: center;
-  box-shadow:  10px 8px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateY(-600px);
   transition: transform 0.6s ease;
   z-index: 10;
 }
 
-.close{
+.close {
   position: absolute;
   right: 0;
   top: 0;
@@ -211,7 +214,7 @@ input[type=number] {
   transform: translate(-50%, -50%) scale(0);
 }
 
-.fa-x{
+.fa-x {
   position: absolute;
   color: red;
   font-size: 5rem;
@@ -227,7 +230,7 @@ input[type=number] {
   left: 15px;
   transition: transform 0.6s;
 }
-.settings:hover{
+.settings:hover {
   transform: rotate(60deg);
 }
 
@@ -235,31 +238,34 @@ input[type=number] {
   font-size: 2rem;
   width: 70px;
 }
-.modal div{
+.modal div {
   margin: 10px;
 }
 
 #player {
   width: 200px;
 }
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 880px) {
   .math-game {
     color: transparent;
   }
 }
 @media only screen and (max-width: 400px) {
-   .modal{
+  .modal {
     font-size: 1.6rem;
   }
-  .wrong-container, .high-score, .timer, .score-container{
+  .wrong-container,
+  .high-score,
+  .timer,
+  .score-container {
     font-size: 1.05rem;
     padding: 16px 10px;
   }
-  .score-container, .wrong-container{
+  .score-container,
+  .wrong-container {
     right: 25px;
   }
 }
-
 
 @keyframes grow {
   to {
@@ -267,5 +273,3 @@ input[type=number] {
     opacity: 0;
   }
 }
-
-
