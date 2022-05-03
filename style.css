@@ -250,9 +250,9 @@ input[type='number'] {
     color: transparent;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 415px) {
   .modal {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   .wrong-container,
   .high-score,
@@ -263,7 +263,7 @@ input[type='number'] {
   }
   .score-container,
   .wrong-container {
-    right: 25px;
+    right: 20px;
   }
 }
 

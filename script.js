@@ -101,8 +101,9 @@ function play() {
           <h2 id="second-number"><span id="operation">${operator}</span>${first}</h2>
       </div>
       <div class="line"></div>
-      <input type="number" class="answer" id="guess" />
+      <input inputmode="numeric" pattern="[0-9]*" type="text" class="answer" id="guess" />
   `
+  //type="number"
     gameEl.appendChild(questionEl)
   }
   guess.focus()
