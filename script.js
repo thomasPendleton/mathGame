@@ -113,7 +113,6 @@ function play() {
 function enterEventHandler(e) {
   const guess = document.getElementById('guess')
   if (guess.value === '' || guess.value === null) {
-    console.log('no value')
     return
   }
   if (e.key === 'Enter') {
@@ -135,7 +134,6 @@ function enterEventHandler(e) {
       gameEl.classList.remove('wrong')
     }, 1000)
     gameEl.innerHTML = ``
-
     play()
   }
 }

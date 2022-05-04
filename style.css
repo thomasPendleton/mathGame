@@ -21,6 +21,10 @@ body {
   font-family: "Press Start 2P";
   margin-top: 0;
   font-size: 2.5rem;
+  background-color: white;
+  border: 10px solid rgba(74, 74, 74, 1);
+  border-radius: 20px;
+  padding: 15px;
 }
 .container {
   min-height: 150px;
@@ -83,12 +87,14 @@ div h2 {
   position: absolute;
   top: 100px;
   right: 50px;
+  
   /* width: 195px; */
   background-color: orangered;
   border-radius: 5px;
   border: 1px solid black;
   padding: 15px;
   font-size: 1.5rem;
+  letter-spacing: .065rem;
   color: white;
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
@@ -155,7 +161,7 @@ div h2 {
 }
 
 .correct {
-  /* color: greenyellow; */
+  font-family: '';
   font-size: 1.65rem;
   box-shadow: 0 0 6px 10px rgba(255, 110, 175, 0.5);
   border-radius: 5px;
@@ -181,8 +187,8 @@ input[type='number'] {
   position: absolute;
   top: 110px;
   background-color: aliceblue;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 10px solid rgb(41, 41, 41);
+  border-radius: 10px;
   padding: 20px 30px;
   font-size: 2rem;
   text-align: center;
@@ -196,16 +202,17 @@ input[type='number'] {
   position: absolute;
   right: 0;
   top: 0;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  border-radius: 5px;
-  border: 1px solid black;
+  border-radius: 10px;
+  border: 5px solid rgb(41, 41, 41);
   cursor: pointer;
 }
+
 .fa-heart {
   position: absolute;
   color: rgb(255, 147, 165);
@@ -245,9 +252,11 @@ input[type='number'] {
 #player {
   width: 200px;
 }
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 860px) {
   .math-game {
     color: transparent;
+    background-color: transparent;
+  border: none;
   }
 }
 @media only screen and (max-width: 415px) {
