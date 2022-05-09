@@ -30,7 +30,7 @@ let answer
 //change maxNumber function
 function changeMaxNumber(e) {
   maxNumber = e.target.value
-  if(maxNumber > 9999){
+  if (maxNumber > 9999) {
     maxNumber = 9999
   }
   highNumberInput.value = maxNumber
@@ -40,7 +40,7 @@ highNumberInput.addEventListener('input', changeMaxNumber)
 //change timeGiven function
 function changeCountDownTime(e) {
   countDownTime = e.target.value
-  if(countDownTime > 500){
+  if (countDownTime > 500) {
     countDownTime = 500
   }
   time.value = countDownTime
@@ -111,7 +111,7 @@ function play() {
       <div class="line"></div>
       <input inputmode="numeric" pattern="[0-9]*" type="text" class="answer" id="guess" />
   `
-  //type="number"
+    //type="number"
     gameEl.appendChild(questionEl)
   }
   guess.focus()
@@ -123,8 +123,13 @@ function enterEventHandler(e) {
   if (guess.value === '' || guess.value === null) {
     return
   }
-  console.log(e.which);
-  if (e.key === 'Enter' || e.which === 9 || e.which === 261 || e.which === 16 ) {
+  console.log(e.which)
+  if (
+    e.key === 'Enter' ||
+    e.which === 9 ||
+    e.which === 56 ||
+    e.which === 190
+  ) {
     if (+guess.value === answer) {
       correctSound.play()
       totalScore++
