@@ -21,11 +21,11 @@ const questionEl = document.createElement('div')
 const operators = ['+', '-']
 
 let totalScore = 0
-let maxNumber = 20
 let wrong = 0
-let answer
+let maxNumber = 15
 let countDownTime = 120
 let playerName = 'Player 1'
+let answer
 
 //change maxNumber function
 function changeMaxNumber(e) {
@@ -33,6 +33,7 @@ function changeMaxNumber(e) {
   if(maxNumber > 9999){
     maxNumber = 9999
   }
+  highNumberInput.value = maxNumber
 }
 highNumberInput.addEventListener('input', changeMaxNumber)
 
@@ -42,6 +43,7 @@ function changeCountDownTime(e) {
   if(countDownTime > 500){
     countDownTime = 500
   }
+  time.value = countDownTime
 }
 time.addEventListener('input', changeCountDownTime)
 
