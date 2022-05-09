@@ -115,7 +115,7 @@ function play() {
     gameEl.appendChild(questionEl)
   }
   guess.focus()
-  document.addEventListener('keyup', enterEventHandler)
+  document.addEventListener('keydown', enterEventHandler)
 }
 
 function enterEventHandler(e) {
