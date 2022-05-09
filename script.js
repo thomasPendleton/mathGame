@@ -16,6 +16,7 @@ const highScore = document.getElementById('high-score')
 const highScoresContainer = document.getElementById('high-scores-container')
 const highNumberInput = document.getElementById('high-number')
 
+
 const questionEl = document.createElement('div')
 
 const operators = ['+', '-']
@@ -116,6 +117,7 @@ function play() {
   }
   guess.focus()
   document.addEventListener('keydown', enterEventHandler)
+  gameEl.addEventListener('touchstart', enterEventHandler)
 }
 
 function enterEventHandler(e) {
@@ -127,7 +129,7 @@ function enterEventHandler(e) {
   if (
     e.key === 'Enter' ||
     e.key === 'Next' ||
-    e.key === 110
+    e.which === 0
   
   ) {
     if (+guess.value === answer) {
