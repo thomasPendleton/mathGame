@@ -126,7 +126,7 @@ function enterEventHandler(e) {
   console.log(e.which)
   if (
     e.key === 'Enter' ||
-    e.which === 9 ||
+    e.which === 110 ||
     e.which === 56 ||
     e.which === 190
   ) {
