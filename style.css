@@ -36,9 +36,8 @@ body {
   justify-content: center;
   align-items: center;
   border: 2px solid rgb(40, 0, 65);
-  width: 370px;
+  /* width: 370px; */
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
-  margin-top: 10px;
 }
 
 .line {
@@ -58,7 +57,7 @@ body {
 }
 .question {
   text-align: right;
-  width: 50px;
+  
 }
 div h2 {
   margin: 0px;
@@ -68,7 +67,7 @@ div h2 {
 }
 #operation {
   position: absolute;
-  left: -10px;
+  left: -15px;
 }
 .score-container {
   position: absolute;
@@ -87,7 +86,6 @@ div h2 {
   position: absolute;
   top: 100px;
   right: 50px;
-
   /* width: 195px; */
   background-color: orangered;
   border-radius: 5px;
@@ -189,13 +187,17 @@ input[type='number'] {
   background-color: aliceblue;
   border: 10px solid rgb(41, 41, 41);
   border-radius: 10px;
-  padding: 20px 30px;
+  padding: 15px 60px 40px;
   font-size: 2rem;
   text-align: center;
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateY(-600px);
   transition: transform 0.6s ease;
   z-index: 10;
+}
+
+.time{
+  padding-bottom: 2px;
 }
 
 .close {
@@ -211,6 +213,7 @@ input[type='number'] {
   border-radius: 10px;
   border: 5px solid rgb(41, 41, 41);
   cursor: pointer;
+  margin: 10px;
 }
 
 .fa-heart {
@@ -243,10 +246,13 @@ input[type='number'] {
 
 .modal input {
   font-size: 2rem;
-  width: 70px;
+  width: 140px;
+  text-align: center;
 }
-.modal div {
-  margin: 10px;
+.modal h3 {
+  /* background-color: blue; */
+  text-align: left;
+  margin: 0 0 20px 0;
 }
 
 #player {

@@ -25,17 +25,23 @@ let maxNumber = 20
 let wrong = 0
 let answer
 let countDownTime = 120
-let playerName = 'Ari'
+let playerName = 'Player 1'
 
 //change maxNumber function
 function changeMaxNumber(e) {
   maxNumber = e.target.value
+  if(maxNumber > 9999){
+    maxNumber = 9999
+  }
 }
 highNumberInput.addEventListener('input', changeMaxNumber)
 
 //change timeGiven function
 function changeCountDownTime(e) {
   countDownTime = e.target.value
+  if(countDownTime > 500){
+    countDownTime = 500
+  }
 }
 time.addEventListener('input', changeCountDownTime)
 
@@ -147,7 +153,7 @@ function clearScores() {
 
 function playNow() {
   clearScores()
-  modalEl.style.transform = 'translateY(-500px)'
+  modalEl.style.transform = 'translateY(-600px)'
   highScoresContainer.classList.remove('show')
 
   timeLeft = countDownTime

@@ -18,7 +18,6 @@
   <body>
     <div class="settings" id="settings"><i class="fa-solid fa-gear"></i></div>
 
-
     <div class="score-container" id="score-container">
       Correct : <span id="score">0</span>
     </div>
@@ -40,15 +39,18 @@
       <h3>Game Settings</h3>
       <div>
         <label for="player">Player Name:</label>
-        <input type='text' id="player" value="Ari"/>
+        <br>
+        <input type='text' id="player" value="Player 1"/>
       </div>
       <div>
         <label for="high-number">Highest number:</label>
-        <input type="number" min="9" id="high-number" value="15" />
+        <br>
+        <input type="number" min="9" max="9999"id="high-number" value="15" />
       </div>
       <div>
         <label for="time">Time given:</label>
-        <input type="number" min="10" id="time" type="number" value="120" />
+        <br>
+        <input type="number" min="10" max="300" id="time" class="time" type="number" value="120" />
       </div>
 
       <audio id="correct-sound" src="./sounds/zapsplat_multimedia_correct_ping_tone_001_68778.mp3"></audio>
