@@ -126,9 +126,9 @@ function enterEventHandler(e) {
   console.log(e.which)
   if (
     e.key === 'Enter' ||
-    e.which === 110 ||
-    e.which === 56 ||
-    e.which === 190
+    e.key === 'Next' ||
+    e.key === 110
+  
   ) {
     if (+guess.value === answer) {
       correctSound.play()
