@@ -123,7 +123,7 @@ function enterEventHandler(e) {
   if (guess.value === '' || guess.value === null) {
     return
   }
-  if (e.key === 'Enter') {
+  if (e.key === 'Enter' || e.which === 9) {
     if (+guess.value === answer) {
       correctSound.play()
       totalScore++
