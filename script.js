@@ -117,6 +117,7 @@ function play() {
   guess.focus()
   document.addEventListener('keydown', enterEventHandler)
   gameEl.addEventListener('touchstart', enterEventHandler)
+  guess.focus()
 }
 
 function enterEventHandler(e) {
