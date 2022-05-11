@@ -112,7 +112,6 @@ function play() {
       <div class="line"></div>
       <input inputmode="numeric" pattern="[0-9]*" type="text" class="answer" id="guess" />
   `
-    //type="number"
     gameEl.appendChild(questionEl)
   }
   guess.focus()
