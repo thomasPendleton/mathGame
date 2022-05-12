@@ -153,11 +153,13 @@ div h2 {
   border-radius: 5px;
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateX(-390px);
-  transition: transform 0.5s ease;
+  visibility: hidden;
+  transition: all 0.5s ease;
 }
 
 .show {
   transform: translateX(0px);
+  visibility: visible;
 }
 
 .correct {
@@ -280,12 +282,16 @@ input[type='number'] {
     font-size: 1.05rem;
     padding: 16px 10px;
   }
-  .score-container,
+  /* .score-container,
   .wrong-container {
     right: 20px;
-  }
+  } */
   .game{
     margin: 10px;
+  }
+  .show {
+    transform: translateX(-22px);
+    visibility: visible;
   }
 }
 
