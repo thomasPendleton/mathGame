@@ -289,7 +289,7 @@ input[type='number'] {
   .game{
     margin: 10px;
   }
-  .show {
+  .high-scores-container.show {
     transform: translateX(-22px);
     visibility: visible;
   }
