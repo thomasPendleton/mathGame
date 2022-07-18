@@ -5,9 +5,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-color: #d8f0d8;
+  --main-color: #7878c0;
+  --alt-main-color: #9090c0;
+  --main-pink: #f0c0d8;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: rgb(245, 245, 245);
+  background-color: var(--bg-color);
   margin: 0;
   padding-top: 80px;
   display: flex;
@@ -17,31 +24,36 @@ body {
   overflow: hidden;
 }
 .math-game {
-  color: rgb(70, 74, 74);
+  /* color: rgb(70, 74, 74);
+   */
+  color: var(--main-color);
   font-family: 'Press Start 2P';
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 2.5rem;
-  background-color: rgb(243, 243, 243);
-  /* background-color: rgb(55, 55, 200); */
-  border: 10px solid rgba(74, 74, 74, 1);
+  background-color: var(--main-pink);
+  /* border: 10px solid rgba(74, 74, 74, 1); */
+  border: 10px solid var(--main-color);
   border-radius: 20px;
   padding: 15px;
 }
 .container {
   min-height: 150px;
-  background-color: rgb(237, 50, 247);
-  border-radius: 5px;
+  background-color: var(--alt-main-color);
+  border-radius: 10px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgb(40, 0, 65);
+  /* border: 2px solid rgb(40, 0, 65); */
+  border: 10px solid var(--main-color);
   /* width: 370px; */
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
 }
-
+.question {
+  text-align: right;
+}
 .line {
   width: 100px;
   height: 1px;
@@ -54,14 +66,11 @@ body {
   height: 50px;
   font-size: 2rem;
   text-align: center;
-  border: 2px solid rebeccapurple;
-  border-radius: 2px;
+  border: 5px solid var(--main-color);
+  border-radius: 5px;
   padding: 30px 0;
 }
-.question {
-  text-align: right;
-  
-}
+
 div h2 {
   margin: 0px;
 }
@@ -76,9 +85,9 @@ div h2 {
   position: absolute;
   top: 30px;
   right: 50px;
-  background-color: pink;
+  background-color: var(--main-pink);
   border-radius: 5px;
-  border: 1px solid black;
+  border: 3px solid var(--main-color);
   padding: 15px;
   font-size: 1.5rem;
   color: white;
@@ -92,7 +101,7 @@ div h2 {
   /* width: 195px; */
   background-color: orangered;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 3px solid var(--main-color);
   padding: 15px;
   font-size: 1.5rem;
   letter-spacing: 0.065rem;
@@ -102,10 +111,10 @@ div h2 {
 }
 .timer {
   position: absolute;
-  background-color: pink;
+  background-color: var(--main-pink);
   padding: 15px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 3px solid var(--main-color);
   color: white;
   top: 30px;
   left: 50px;
@@ -123,10 +132,10 @@ div h2 {
 
 .high-score {
   position: absolute;
-  background-color: pink;
+  background-color: var(--main-pink);
   padding: 15px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 3px solid var(--main-color);
   color: white;
   top: 100px;
   left: 50px;
@@ -148,9 +157,9 @@ div h2 {
   color: white;
   z-index: 10;
   text-align: center;
-  background-color: pink;
+  background-color: var(--main-pink);
   padding: 10px;
-  border: 1px solid black;
+  border: 3px solid var(--main-color);
   border-radius: 5px;
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
   transform: translateX(-390px);
@@ -201,7 +210,7 @@ input[type='number'] {
   z-index: 10;
 }
 
-.time{
+.time {
   padding-bottom: 2px;
 }
 
@@ -264,14 +273,13 @@ input[type='number'] {
   width: 200px;
 }
 @media only screen and (max-width: 860px) {
-
   .math-game {
     visibility: hidden;
     margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 415px) {
-  body{
+  body {
     padding-top: 65px;
   }
   .modal {
@@ -288,7 +296,7 @@ input[type='number'] {
   .wrong-container {
     right: 20px;
   } */
-  .game{
+  .game {
     margin: 10px;
   }
   .high-scores-container.show {
