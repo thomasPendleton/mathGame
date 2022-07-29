@@ -170,7 +170,7 @@ function playNow() {
       <h2 style='color: white; font-size: 2rem'>Times Up!</h2>
       <br>
       <h3 style='color: white; font-size: 1.7rem; text-align: center'>You got ${totalScore} correct!
-      <br> and ${wrong} wrong. `
+      <br> With ${wrong} wrong. `
       timerEl.innerHTML = `Play Again`
       timerEl.addEventListener('click', playNow)
       document.removeEventListener('keyup', enterEventHandler)
