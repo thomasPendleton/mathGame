@@ -318,6 +318,12 @@ footer a {
   .game {
     margin: 0;
   }
+  .long-github {
+    display: none;
+  }
+  .github-emblem {
+    font-size: 1.6rem;
+  }
 }
 @media only screen and (max-width: 500px) {
   body {
