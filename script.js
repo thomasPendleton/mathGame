@@ -124,7 +124,7 @@ function enterEventHandler(e) {
   if (guess.value === '' || guess.value === null) {
     return
   }
-  console.log(e.which)
+  // console.log(e.which)
   if (e.key === 'Enter' || e.key === 'Next' || e.which === 0) {
     if (+guess.value === answer) {
       correctSound.play()
@@ -190,10 +190,10 @@ timerEl.addEventListener('click', playNow)
 // creates the heart element and randomly places the heart on the body
 function addHeart() {
   const heart = document.createElement('i')
-  heart.classList.add('fas')
-  heart.classList.add('fa-heart')
+  heart.classList.add('fas', 'fa-heart')
+  // heart.classList.add('fa-heart')
   let rect = document.body.getBoundingClientRect()
-  //   console.log(rect.top, rect.right, rect.bottom, rect.left)
+    console.log(rect.top, rect.right, rect.bottom, rect.left)
   heart.style.top = `${randomMath(rect.bottom - 400)}px`
   heart.style.left = `${randomMath(rect.right)}px`
   document.body.appendChild(heart)
@@ -201,6 +201,12 @@ function addHeart() {
     heart.remove()
   }, 1500)
 }
+
+
+
+let rect = document.body.getBoundingClientRect()
+ console.log(rect.top, rect.right, rect.bottom, rect.left)
+
 
 //adds mulitiple hearts at slightly different timing intervals
 function addHearts(num) {

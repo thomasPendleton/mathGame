@@ -6,10 +6,16 @@
 }
 
 :root {
-  --bg-color: #d8f0d8;
+  /* --bg-color: #d8f0d8;
   --main-color: #7878c0;
-  --alt-main-color: #9090c0;
-  --main-pink: #f0c0d8;
+  --alt-main-color: #8E4C9E;
+  --main-pink: #f0c0d8; */
+
+  --bg-color: #163d57;
+  --main-color: #0c2427;
+  --alt-main-color: #8e4c9e;
+  --main-pink: #8e4c9e;
+  --white: #f1f3f8;
 }
 
 body {
@@ -20,34 +26,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 650px;
+  overflow-x: hidden;
 }
 .math-game {
-  /* color: rgb(70, 74, 74);
-   */
-  color: var(--main-color);
+  color: var(--white);
   font-family: 'Press Start 2P';
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 2.5rem;
   background-color: var(--main-pink);
-  /* border: 10px solid rgba(74, 74, 74, 1); */
-  border: 10px solid var(--main-color);
-  border-radius: 20px;
-  padding: 15px;
+  box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
+  border: 5px solid var(--main-color);
+  border-radius: 10px;
+  padding: 25px;
+}
+.game {
+  margin: 100px auto;
 }
 .container {
-  min-height: 150px;
+  min-height: 250px;
+  min-width: 350px;
   background-color: var(--alt-main-color);
   border-radius: 10px;
+  /* margin: 50px auto; */
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid rgb(40, 0, 65); */
-  border: 10px solid var(--main-color);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 5px solid var(--main-color);
   /* width: 370px; */
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
 }
@@ -56,8 +67,8 @@ body {
 }
 .line {
   width: 100px;
-  height: 1px;
-  background-color: black;
+  height: 2px;
+  background-color: var(--white);
   margin: 10px;
 }
 
@@ -66,7 +77,7 @@ body {
   height: 50px;
   font-size: 2rem;
   text-align: center;
-  border: 5px solid var(--main-color);
+  border: 4px solid var(--main-color);
   border-radius: 5px;
   padding: 30px 0;
 }
@@ -79,7 +90,7 @@ div h2 {
 }
 #operation {
   position: absolute;
-  left: -15px;
+  left: -20px;
 }
 .score-container {
   position: absolute;
@@ -90,7 +101,7 @@ div h2 {
   border: 3px solid var(--main-color);
   padding: 15px;
   font-size: 1.5rem;
-  color: white;
+  color: var(--white);
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -105,9 +116,9 @@ div h2 {
   padding: 15px;
   font-size: 1.5rem;
   letter-spacing: 0.065rem;
-  color: white;
+  color: var(--white);
   box-shadow: 10px 8px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  /* z-index: 1; */
 }
 .timer {
   position: absolute;
@@ -115,7 +126,7 @@ div h2 {
   padding: 15px;
   border-radius: 5px;
   border: 3px solid var(--main-color);
-  color: white;
+  color: var(--white);
   top: 30px;
   left: 50px;
   font-size: 1.5rem;
@@ -124,7 +135,7 @@ div h2 {
 }
 
 .timer:hover {
-  background-color: rgba(255, 192, 203, 0.6);
+  filter: brightness(1.25);
 }
 .timer:active {
   transform: scale(0.98);
@@ -136,7 +147,7 @@ div h2 {
   padding: 15px;
   border-radius: 5px;
   border: 3px solid var(--main-color);
-  color: white;
+  color: var(--white);
   top: 100px;
   left: 50px;
   font-size: 1.5rem;
@@ -145,7 +156,7 @@ div h2 {
 }
 
 .high-score:hover {
-  background-color: rgba(255, 192, 203, 0.6);
+  filter: brightness(1.25);
 }
 .high-score:active {
   transform: scale(0.98);
@@ -154,7 +165,7 @@ div h2 {
   position: absolute;
   top: 170px;
   left: 50px;
-  color: white;
+  color: var(--white);
   z-index: 10;
   text-align: center;
   background-color: var(--main-pink);
@@ -198,8 +209,8 @@ input[type='number'] {
 .modal {
   position: absolute;
   top: 110px;
-  background-color: aliceblue;
-  border: 10px solid rgb(41, 41, 41);
+  background-color: var(--white);
+  border: 5px solid var(--main-color);
   border-radius: 10px;
   padding: 15px 60px 40px;
   font-size: 2rem;
@@ -223,7 +234,7 @@ input[type='number'] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 10px;
   border: 5px solid rgb(41, 41, 41);
   cursor: pointer;
@@ -253,6 +264,7 @@ input[type='number'] {
   top: 45px;
   left: 15px;
   transition: transform 0.6s;
+  color: var(--white);
 }
 .settings:hover {
   transform: rotate(60deg);
@@ -264,7 +276,6 @@ input[type='number'] {
   text-align: center;
 }
 .modal h3 {
-  /* background-color: blue; */
   text-align: left;
   margin: 0 0 20px 0;
 }
@@ -272,13 +283,43 @@ input[type='number'] {
 #player {
   width: 200px;
 }
-@media only screen and (max-width: 860px) {
+
+/* -------------Footer --------------- */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: var(--alt-main-color);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  border-top: 1px solid var(--main-color);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+footer > small {
+  font-size: 1.5rem;
+}
+footer a {
+  color: var(--white);
+}
+
+/* ------------Media query----------- */
+
+@media only screen and (max-width: 900px) {
   .math-game {
-    visibility: hidden;
+    opacity: 0;
+    transition: opacity 500ms ease;
     margin-bottom: 0;
   }
+  .game {
+    margin: 0;
+  }
 }
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 500px) {
   body {
     padding-top: 65px;
   }
@@ -302,6 +343,12 @@ input[type='number'] {
   .high-scores-container.show {
     transform: translateX(-22px);
     visibility: visible;
+  }
+  .long-github {
+    display: none;
+  }
+  .github-emblem {
+    font-size: 1.6rem;
   }
 }
 
