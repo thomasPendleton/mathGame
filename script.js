@@ -194,7 +194,7 @@ function addHeart() {
   // heart.classList.add('fa-heart')
   let rect = document.body.getBoundingClientRect()
     console.log(rect.top, rect.right, rect.bottom, rect.left)
-  heart.style.top = `${randomMath(rect.bottom - 350)}px`
+  heart.style.top = `${randomMath(rect.bottom - 100)}px`
   heart.style.left = `${randomMath(rect.right)}px`
   document.body.appendChild(heart)
   setTimeout(() => {

@@ -298,6 +298,7 @@ footer {
   color: var(--white);
   border-top: 1px solid var(--main-color);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 1s;
 }
 
 footer > small {
@@ -329,7 +330,7 @@ footer a {
 }
 @media only screen and (max-width: 500px) {
   body {
-    padding-top: 65px;
+    padding-top: 20px;
   }
   .modal {
     font-size: 1.4rem;
@@ -360,9 +361,19 @@ footer a {
   }
 }
 
+
+@media screen and (max-height: 630px) {
+  footer{
+   transform: translateY(100%);
+  
+  }
+}
+
 @keyframes grow {
   to {
-    transform: translate(-50%, -50%) scale(10);
+    transform: translate(-50%, -50%) scale(5);
     opacity: 0;
   }
 }
+
+
